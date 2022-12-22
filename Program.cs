@@ -7,6 +7,8 @@ InitArray(mass);
 
 Console.WriteLine($"Массив: [{String.Join(",",mass)}]");
 
+Console.Write($"Количество элементов меньше или равно {3}: {ElementsShorterLen(mass,3)}");
+
 //******************************************************МЕТОДЫ****************************************************
 //Ввод массива с клавиатуры
 void InitArray(string[] array){
@@ -15,4 +17,13 @@ void InitArray(string[] array){
         array[i] = Console.ReadLine()!;
     }
     Console.WriteLine();
+}
+
+//Элементы длинна которых меньше или равна len
+int ElementsShorterLen(string[] array, int len){
+    int num = 0;
+    for(int i = 0; i < array.Length; i++){
+        if(array[i].Length <= len) num++;
+    }
+    return num;
 }
