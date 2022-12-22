@@ -5,9 +5,8 @@ string[] mass = new string [size];
 
 InitArray(mass);
 
-Console.WriteLine($"Массив: [{String.Join(",",mass)}]");
-
-Console.Write($"Количество элементов меньше или равно {3}: {ElementsShorterLen(mass,3)}");
+Console.Write($"[{String.Join(",",mass)}] ->"); 
+Console.WriteLine($"[{String.Join(",",ArrayElementsShorterLen(mass,3))}]");
 
 //******************************************************МЕТОДЫ****************************************************
 //Ввод массива с клавиатуры
@@ -26,4 +25,24 @@ int ElementsShorterLen(string[] array, int len){
         if(array[i].Length <= len) num++;
     }
     return num;
+}
+
+//Формируем массив из массива array длина строк которого <= len 
+string[] ArrayElementsShorterLen(string[] array, int len){
+    size = ElementsShorterLen(array,len);
+    if (size == 0){
+        string[] temp = new string [size]; 
+        return temp;   
+    } 
+    else{
+        string[] temp = new string [size];
+        int j = 0;
+        for(int i = 0; i < array.Length; i++){
+            if(array[i].Length <= len){
+                temp[j] = array[i];
+                j++;
+            }
+        }
+        return temp;
+    }
 }
